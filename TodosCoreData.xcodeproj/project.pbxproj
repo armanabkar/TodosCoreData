@@ -28,6 +28,7 @@
 		F0E36F9C26500DE80075A55A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F0E36FAB26500F290075A55A /* TodoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
 		F0E3702C26505F590075A55A /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		F0E3702F265185720075A55A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +45,7 @@
 		F0E36F7F26500DE70075A55A = {
 			isa = PBXGroup;
 			children = (
+				F0E3702F265185720075A55A /* README.md */,
 				F0E36F8A26500DE70075A55A /* TodosCoreData */,
 				F0E36F8926500DE70075A55A /* Products */,
 			);

@@ -18,25 +18,19 @@ class CategoryViewController: UITableViewController {
         super.viewDidLoad()
         
         loadCategories()
-        
     }
     
     //MARK: - TableView Datasource Methods
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return categories.count
-        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
-        
         cell.textLabel?.text = categories[indexPath.row].name
         
         return cell
-        
     }
     
     
@@ -54,7 +48,6 @@ class CategoryViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
             
             self.saveCategories()
-            
         }
     }
     
@@ -63,6 +56,7 @@ class CategoryViewController: UITableViewController {
         
         if let indexPath = tableView.indexPathForSelectedRow {
             destinationVC.selectedCategory = categories[indexPath.row]
+            destinationVC.categoryTitle.title = categories[indexPath.row].name
         }
     }
     
@@ -76,11 +70,9 @@ class CategoryViewController: UITableViewController {
         }
         
         tableView.reloadData()
-        
     }
     
     func loadCategories() {
-        
         let request : NSFetchRequest<Category> = Category.fetchRequest()
         
         do{
@@ -90,43 +82,32 @@ class CategoryViewController: UITableViewController {
         }
         
         tableView.reloadData()
-        
     }
     
     
     //MARK: - Add New Categories
     
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
-        
         var textField = UITextField()
         
         let alert = UIAlertController(title: "Add New Category", message: "", preferredStyle: .alert)
         
         let action = UIAlertAction(title: "Add", style: .default) { (action) in
-            
             let newCategory = Category(context: self.context)
             newCategory.name = textField.text!
-            
             self.categories.append(newCategory)
             
             self.saveCategories()
-            
         }
-        
         alert.addAction(action)
-        
         alert.addTextField { (field) in
             textField = field
             textField.placeholder = "Add a new category"
         }
         
         present(alert, animated: true, completion: nil)
-        
     }
     
-    
-    
-    
-    
 }
+
 
